@@ -1,82 +1,61 @@
 <template>
 
-    <div class="container">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-8">
+        <table class="table">
 
-      <div class="row justify-content-center">
+          <thead>
+            <tr>
+              <th colspan="4">
+                <span click.trigger="newTodo()"><i data-feather="plus"></i></span>
+                <span click.trigger="getTodos()" style="margin-left:5px;"><i data-feather="refresh-cw"></i></span>
+              </th>
 
-        <div class="col-8">
+            </tr>
 
-          <table class="table">
 
-  
+            <tr>
 
-            <thead>
+              <th scope="col">Todo</th>
+              <th scope="col">Priority</th>
+              <th scope="col">Done</th>
 
-              <tr>
+            </tr>
 
-                <th colspan="4">
+          </thead>
 
-                  <span click.trigger="newTodo()"><i data-feather="plus"></i></span>
+          <tbody>
 
-                  <span click.trigger="getTodos()" style="margin-left:5px;"><i data-feather="refresh-cw"></i></span>
+            <tr repeat.for="todo of todos.todosArray">
 
-                </th>
+              <td click.trigger="editTodo(todo)">${todo.todo}</td>
+              <td click.trigger="editTodo(todo)">${todo.priority}</td>
 
-              </tr>
+              <td>
 
-  
+                <div class="form-check">
 
-              <tr>
+                  <input class="form-check-input" change.delegate="changeActive(todo)" checked.bind="todo.active" type="checkbox"
+                    value="" id="defaultCheck1">
+                </div>
 
-                <th scope="col">Todo</th>
 
-                <th scope="col">Priority</th>
 
-                <th scope="col">Done</th>
+              </td>
 
-                
+            </tr>
 
-              </tr>
 
-            </thead>
 
-            <tbody>
+          </tbody>
 
-              <tr repeat.for="todo of todos.todosArray">
-
-  
-
-                <td  click.trigger="editTodo(todo)">${todo.todo}</td>
-
-                <td  click.trigger="editTodo(todo)">${todo.priotity}</td>
-
-            
-
-                <td>
-
-                  <div class="form-check">
-
-                    <input class="form-check-input" change.delegate="changeActive(todo)" checked.bind="todo.active" type="checkbox"
-
-                      value="" id="defaultCheck1">
-</div>
-
-  
-
-                </td>
-
-              </tr>
-
-  
-
-            </tbody>
-
-          </table>
-
-        </div>
+        </table>
 
       </div>
 
     </div>
 
-  </template>
+  </div>
+
+</template>

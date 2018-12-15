@@ -23,6 +23,12 @@ export class App {
         route: 'users',
         moduleId: './modules/users',
         name: ' Users'
+      },
+
+      {
+        route: ['', 'todos'],
+        moduleId: './modules/todos',
+        name: 'Todos'
       }
     ]);
   }
